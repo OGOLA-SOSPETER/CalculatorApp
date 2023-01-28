@@ -42,9 +42,9 @@ fun Arithmetic() {
     var product by rememberSaveable{mutableStateOf(0)}
     var sub by rememberSaveable{mutableStateOf(0)}
     Column (verticalArrangement = Arrangement.Center,
-    modifier = Modifier.padding(top = 10.dp,start = 10.dp,end = 10.dp)){
+    modifier = Modifier.padding(start = 10.dp,end = 10.dp)){
         Text(
-            AnnotatedString(text = "This is an app to calculate and do Basic Arithmetic\n Operations."),
+            AnnotatedString(text = "This is an app to calculate and do Basic Arithmetic Operations."),
         Modifier.offset(20.dp,20.dp),
             style = MaterialTheme.typography.h6,
             fontWeight = FontWeight.Bold,
@@ -71,23 +71,26 @@ fun Arithmetic() {
 
         )
 
-        Button(modifier = Modifier.offset(35.dp,30.dp),onClick = {  }) {
+        Button(colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
+            ,modifier = Modifier.offset(35.dp,30.dp),onClick = {  }) {
             Text(text = "The Sum of the two Numbers = $sum")
         }
         Spacer(modifier = Modifier.height(10.dp))
 
-        Button(modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
+        Button(colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
+            ,modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
             Text(text = "The Product of the two Numbers = $product")
         }
         Spacer(modifier = Modifier.height(10.dp))
 
-        Button(modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
+        Button(colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary),
+            modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
             Text(text = "The Difference of the two Numbers = $sub")
         }
         Spacer(modifier = Modifier.height(20.dp))
 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
     Button(
-        modifier = Modifier.offset(50.dp, 10.dp), onClick = {
+        modifier = Modifier.offset(30.dp, 10.dp), onClick = {
             val num = number1.text.toInt()
             val numb = number2.text.toInt()
             if (num != 0 && numb != 0) {
@@ -99,7 +102,7 @@ Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
     {Text(text = "Sum")}
 
     Button(
-        modifier = Modifier.offset(50.dp, 10.dp), onClick = {
+        modifier = Modifier.offset(40.dp, 10.dp), onClick = {
             val num = number1.text.toInt()
             val numb = number2.text.toInt()
             if (num != 0 && numb != 0) {
