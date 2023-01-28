@@ -39,6 +39,8 @@ fun Arithmetic() {
     var number1 by remember{ mutableStateOf(TextFieldValue("")) }
     var number2 by remember{ mutableStateOf(TextFieldValue(""))}
     var sum by rememberSaveable{mutableStateOf(0)}
+    var product by rememberSaveable{mutableStateOf(0)}
+    var sub by rememberSaveable{mutableStateOf(0)}
     Column {
         Text(
             AnnotatedString(text = "This is an app to calculate and do Basic Arithmetic\n Operations."),
@@ -71,25 +73,59 @@ fun Arithmetic() {
         Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
             Text(text = "The Sum of the two Numbers = $sum")
         }
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
-        Button(modifier = Modifier.offset(120.dp,10.dp), onClick = {
+        Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
+            Text(text = "The Product of the two Numbers = $product")
+        }
+        Spacer(modifier = Modifier.height(10.dp))
 
+        Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
+            Text(text = "The Difference of the two Numbers = $sub")
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+    Button(
+        modifier = Modifier.offset(50.dp, 10.dp), onClick = {
             val num = number1.text.toInt()
             val numb = number2.text.toInt()
-
-            if (num != 0 && numb != 0){
-               sum = num + numb
-
+            if (num != 0 && numb != 0) {
+                sum = num + numb
             }
-
         },
-            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary))
-        {
-            Text(text = "Sum")
-        }
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
+    )
+    {Text(text = "Sum")}
+
+    Button(
+        modifier = Modifier.offset(50.dp, 10.dp), onClick = {
+            val num = number1.text.toInt()
+            val numb = number2.text.toInt()
+            if (num != 0 && numb != 0) {
+                product = num * numb
+            }
+        },
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
+    )
+    {Text(text = "Product")}
+
+    Button(
+        modifier = Modifier.offset(50.dp, 10.dp), onClick = {
+            val num = number1.text.toInt()
+            val numb = number2.text.toInt()
+            sub = if (num > numb ) {
+                num - numb
+            } else{
+                numb - num
+            }
+            }
+        ,
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
+    )
+    {Text(text = "Difference")}
 
 
+}
     }
 }
 
