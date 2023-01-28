@@ -41,7 +41,8 @@ fun Arithmetic() {
     var sum by rememberSaveable{mutableStateOf(0)}
     var product by rememberSaveable{mutableStateOf(0)}
     var sub by rememberSaveable{mutableStateOf(0)}
-    Column {
+    Column (verticalArrangement = Arrangement.Center,
+    modifier = Modifier.padding(top = 10.dp,start = 10.dp,end = 10.dp)){
         Text(
             AnnotatedString(text = "This is an app to calculate and do Basic Arithmetic\n Operations."),
         Modifier.offset(20.dp,20.dp),
@@ -70,17 +71,17 @@ fun Arithmetic() {
 
         )
 
-        Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
+        Button(modifier = Modifier.offset(35.dp,30.dp),onClick = {  }) {
             Text(text = "The Sum of the two Numbers = $sum")
         }
         Spacer(modifier = Modifier.height(10.dp))
 
-        Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
+        Button(modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
             Text(text = "The Product of the two Numbers = $product")
         }
         Spacer(modifier = Modifier.height(10.dp))
 
-        Button(modifier = Modifier.offset(20.dp,30.dp),onClick = {  }) {
+        Button(modifier = Modifier.offset(30.dp,30.dp),onClick = {  }) {
             Text(text = "The Difference of the two Numbers = $sub")
         }
         Spacer(modifier = Modifier.height(20.dp))
